@@ -16,9 +16,9 @@ class Response {
         return $this;
     }
 
-    public function output($string)
+    public function body($content)
     {
-        echo $string;
+        echo $content;
     }
 
     public function json()

@@ -48,6 +48,16 @@ class Router {
 
     public function get($uri, $action)
     {
+        $this->addRoute('GET', $uri, $action);
+    }
+
+    public function post($uri, $action)
+    {
+        $this->addRoute('POST', $uri, $action);
+    }
+
+    public function addRoute($method, $uri, $action)
+    {
         $uri = $this->formatUri($uri);
 
         if( ! class_exists($action) )
@@ -55,7 +65,7 @@ class Router {
             throw new \Exception('Action class not found');
         }
 
-        $this->routes['GET'][$uri] = $action;
+        $this->routes[$method][$uri] = $action;
     }
 
     /**

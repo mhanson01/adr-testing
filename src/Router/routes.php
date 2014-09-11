@@ -1,3 +1,4 @@
 <?php
 
-$this->get('something', 'Action\GetHome');
+$this->get('/', 'Action\GetHome');
+$this->post('/', 'Action\GetHome');
