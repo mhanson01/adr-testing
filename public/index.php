@@ -9,3 +9,5 @@ $router = Router::instance();
 $router->get('/', 'Action\GetHome');
 
 $router->run();
+
+var_dump($router);

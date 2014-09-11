@@ -14,6 +14,8 @@ class Router {
     private function __construct(Request $request)
     {
         $this->request = $request;
+
+        require 'routes.php';
     }
 
     public static function instance()
