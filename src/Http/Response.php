@@ -1,6 +1,27 @@
 <?php namespace Http;
 
+use Support\Str;
+
 class Response {
+
+    protected $request;
+
+    private $isJson = false;
+
+    function __construct(Request $request)
+    {
+        $this->request = $request;
+    }
+
+    public function body($content)
+    {
+        if($this->isJson)
+        {
+            $content = json_encode($content);
+        }
+
+        echo $content;
+    }
 
     public function code($code = 200)
     {
@@ -16,13 +37,22 @@ class Response {
         return $this;
     }
 
-    public function body($content)
-    {
-        echo $content;
-    }
-
     public function json()
     {
+        $this->isJson = true;
+
         return $this->type('application/json');
+    }
+
+    public function back()
+    {
+        if( Str::startsWith($this->request->referrer, 'http://localhost-router/') )
+        {
+            header("Location: " . $this->request->referrer);
+            exit;
+        }
+
+        header("Location: http://localhost-router/");
+        exit;
     }
 }

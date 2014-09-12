@@ -9,6 +9,8 @@ class Request {
         $this->method = $_SERVER['REQUEST_METHOD'];
 
         $this->headers = getallheaders();
+
+        $this->referrer = isset($_SERVER['HTTP_REFERRER']) ? $_SERVER['HTTP_REFERRER'] : null;
     }
 
 }

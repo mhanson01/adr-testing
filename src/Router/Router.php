@@ -36,7 +36,7 @@ class Router {
         {
             $actionClass = $this->routes[$this->request->method][$this->request->uri];
 
-            $action = new $actionClass;
+            $action = new $actionClass($this->request);
 
             $action->run();
         }

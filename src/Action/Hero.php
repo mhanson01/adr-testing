@@ -1,13 +1,19 @@
 <?php namespace Action;
 
+use Http\Request;
 use Http\Response;
 
 abstract class Hero {
 
-    function __construct()
-    {
-        $this->response = new Response();
+    /**
+     * @var Request
+     */
+    protected $request;
 
-        //$this->run();
+    function __construct(Request $request)
+    {
+        $this->response = new Response($request);
+
+        $this->request = $request;
     }
 }

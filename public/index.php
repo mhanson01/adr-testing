@@ -6,6 +6,6 @@ require '../vendor/autoload.php';
 
 $router = Router::instance();
 
-$router->run();
+//var_dump($router);
 
-var_dump($router);
+$router->run();
