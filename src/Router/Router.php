@@ -6,7 +6,7 @@ class Router {
 
     public function __construct()
     {
-        require 'routes.php';
+        //require 'routes.php';
     }
 
     public function get($uri, $action)

@@ -4,8 +4,8 @@ use Core\App;
 
 require '../vendor/autoload.php';
 
-$app = App::instance();
+require '../src/Router/routes.php';
 
-//var_dump($router);
+$app = App::instance();
 
 $app->run();

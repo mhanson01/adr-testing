@@ -6,7 +6,6 @@ use Router\Router;
 
 class App {
 
-
     /**
      * @var Router
      */
@@ -23,7 +22,6 @@ class App {
 
     function __construct(Router $router, Request $request, Response $response)
     {
-
         $this->router = $router;
         $this->request = $request;
         $this->response = $response;

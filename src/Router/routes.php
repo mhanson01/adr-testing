@@ -1,6 +1,10 @@
 <?php
 
-$this->get('/', 'Action\GetHome');
-$this->post('/', 'Action\GetHome');
+$app = \Core\App::instance();
 
-$this->get('/test', 'Action\GetTest');
+$router = $app->router;
+
+$router->get('/', 'Action\GetHome');
+$router->post('/', 'Action\GetHome');
+
+$router->get('/test', 'Action\GetTest');
