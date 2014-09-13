@@ -1,49 +1,12 @@
 <?php namespace Router;
 
-use Http\Request;
-
 class Router {
 
-    protected $routes = [];
+    public $routes = [];
 
-    /**
-     * @var Request
-     */
-    protected  $request;
-
-    private function __construct(Request $request)
+    public function __construct()
     {
-        $this->request = $request;
-
         require 'routes.php';
-    }
-
-    public static function instance()
-    {
-        static $instance = null;
-
-        if($instance === null)
-        {
-            $instance = new Router(new Request());
-        }
-
-        return $instance;
-    }
-
-    public function run()
-    {
-        if( isset($this->routes[$this->request->method][$this->request->uri]) )
-        {
-            $actionClass = $this->routes[$this->request->method][$this->request->uri];
-
-            $action = new $actionClass($this->request);
-
-            $action->run();
-        }
-        else
-        {
-            echo 'not found :(';
-        }
     }
 
     public function get($uri, $action)

@@ -1,5 +1,6 @@
 <?php namespace Http;
 
+use Core\App;
 use Support\Str;
 
 class Response {
@@ -7,11 +8,6 @@ class Response {
     protected $request;
 
     private $isJson = false;
-
-    function __construct(Request $request)
-    {
-        $this->request = $request;
-    }
 
     public function body($content)
     {
@@ -46,7 +42,9 @@ class Response {
 
     public function back()
     {
-        if( Str::startsWith($this->request->referrer, 'http://localhost-router/') )
+        $app = App::instance();
+
+        if( Str::startsWith($app->request->referrer, 'http://localhost-router/') )
         {
             header("Location: " . $this->request->referrer);
             exit;

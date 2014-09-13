@@ -1,11 +1,11 @@
 <?php
 
-use Router\Router;
+use Core\App;
 
 require '../vendor/autoload.php';
 
-$router = Router::instance();
+$app = App::instance();
 
 //var_dump($router);
 
-$router->run();
+$app->run();
