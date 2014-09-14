@@ -46,4 +46,14 @@ class Router {
 
         return $uri;
     }
+
+    public function routeExists($method, $uri)
+    {
+        return isset($this->routes[$method][$uri]);
+    }
+
+    public function getClass($method, $uri)
+    {
+        return $this->routes[$method][$uri];
+    }
 }

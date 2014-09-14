@@ -41,9 +41,9 @@ class App {
 
     public function run()
     {
-        if( isset($this->router->routes[$this->request->method][$this->request->uri]) )
+        if($this->router->routeExists($this->request->method, $this->request->uri))
         {
-            $actionClass = $this->router->routes[$this->request->method][$this->request->uri];
+            $actionClass = $this->router->getClass($this->request->method, $this->request->uri);
 
             $action = new $actionClass($this->request);
 

@@ -1,8 +1,8 @@
 <?php
 
-$app = \Core\App::instance();
+use Core\App;
 
-$router = $app->router;
+$router = App::instance()->router;
 
 $router->get('/', 'Action\GetHome');
 $router->post('/', 'Action\GetHome');
